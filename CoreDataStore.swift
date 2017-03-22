@@ -120,12 +120,14 @@ extension CoreDataStore {
         
         var error: ErrorType?
         
-        context?.performBlockAndWait {
-            do {
-                try context?.save()
-            }
-            catch let coreDataError {
-                error = coreDataError
+        if let context = context where (context != mainContext && context != rootContext) {
+            context.performBlockAndWait {
+                do {
+                    try context.save()
+                }
+                catch let coreDataError {
+                    error = coreDataError
+                }
             }
         }
         
