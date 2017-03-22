@@ -28,7 +28,7 @@ The parent / child context setup can be used out of the box for most application
 - `newEditingContext()` is for user input on the main thread
 - `newBackgroundContext()` is for computationally intensive tasks
 
-### Methods
+#### Methods
 - `func setup() throws` sets up the stack and throws a `CoreDataStoreError` if something goes wrong
 - `func save(context: NSManagedObjectContext?) throws`
 - `func purge() throws` resets the main and root contexts and deletes the store files
