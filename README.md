@@ -1,13 +1,6 @@
 # DataStore
 Simple CoreData setup.
 
-## What's Inside
-- CoreData stack setup
-- Root context on a background thread
-- Main context on the main thread (parent is the Root Context)
-- Ability to get editing contexts (main thread child contexts of the main context)
-- Ability to get Background Contexts (background thread child contexts of the main context)
-
 ## Usage
 
 ### Initialization
@@ -26,6 +19,20 @@ catch let error {
   print("Uh oh: \(error)")
 }
 ```
+
+### Available Properties and Methods
+The parent / child context setup can be used out of the box for most applications. Feel free to extend the `CoreDataStore` protocol to add more functionality.
+
+#### Contexts
+- `dataStore.mainContext` is for all of your read-only UI needs
+- `dataStore.newEditingContext()` is for user input on the main thread
+- `dataStore.newBackgroundContext()` is for computationally intensive tasks
+
+### Methods
+- `func setup() throws` sets up the stack and throws a `CoreDataStoreError` if something goes wrong
+- `func save(context: NSManagedObjectContext?) throws`
+- `func purge() throws` resets the main and root contexts and deletes the store files
+- `func delete() throws` deletes the store files
 
 ### Options
 Any of these can be provided to the DataStore's intializer (some have default values):
