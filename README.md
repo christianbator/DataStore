@@ -11,10 +11,13 @@ Simple CoreData setup.
 ## Usage
 
 ### Initialization
-If you're happy with the default options (see options below), then all you need to get core data up and running is:
+If you're happy with the default options (see options below), then all you need to get CoreData up and running is:
 
 ```swift
-let dataStore = DataStore(storeName: "WhattaStore", managedObjectModelName: "WhattaManagedObjectModel")
+let dataStore = DataStore(
+  storeName: "WhattaStore", 
+  managedObjectModelName: "WhattaManagedObjectModel"
+)
 
 do {
   try dataStore.setup()
@@ -32,7 +35,7 @@ storeName: String,
 storeType: String = NSSQLiteStoreType,
 storeExtension: String = ".sqlite",
 managedObjectModelName: String,
-storeOptions: [NSObject : AnyObject], // see defaults below
+storeOptions: [NSObject : AnyObject] = DataStore.defaultStoreOptions, // see defaults below
 excludeStoreFromiCloudBackup: Bool = true
 ```
 
