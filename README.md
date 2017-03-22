@@ -24,9 +24,9 @@ catch let error {
 The parent / child context setup can be used out of the box for most applications. Feel free to extend the `CoreDataStore` protocol to add more functionality.
 
 #### Contexts
-- `dataStore.mainContext` is for all of your read-only UI needs
-- `dataStore.newEditingContext()` is for user input on the main thread
-- `dataStore.newBackgroundContext()` is for computationally intensive tasks
+- `mainContext` is for all of your read-only UI needs
+- `newEditingContext()` is for user input on the main thread
+- `newBackgroundContext()` is for computationally intensive tasks
 
 ### Methods
 - `func setup() throws` sets up the stack and throws a `CoreDataStoreError` if something goes wrong
