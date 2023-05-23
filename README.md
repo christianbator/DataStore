@@ -1,5 +1,5 @@
 # DataStore
-Simple CoreData setup.
+Simple CoreData setup for iOS.
 
 ## Usage
 
